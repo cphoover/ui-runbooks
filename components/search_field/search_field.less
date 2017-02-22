@@ -1,0 +1,58 @@
+@import (reference) "../../variables.less";
+@import (reference) "../../node_modules/lesshat/build/lesshat.less";
+
+.component-search-field {
+
+	*:focus {
+		outline: none;
+	}
+
+	.input-wrapper{
+		overflow: hidden;
+		width: 274px;
+		vertical-align: middle;
+		white-space: nowrap;
+	}
+
+	.input-wrapper input#search{
+		width: 274px;
+		height: 25px;
+		background: #fff;
+		border: none;
+		font-size: 10pt;
+		float: left;
+		color: #black;
+		padding-left: @gutter;
+		.border-radius(@borderRadius);
+		border: 1px solid #ccc;
+		.placeholder(#65737e);
+	}
+
+	.input-wrapper button.icon{
+		.border-top-right-radius(@borderRadius);
+		.border-bottom-right-radius(@borderRadius);
+		background: none;
+		border: white;
+		height: 25px;
+		width: 30px;
+		color: #4f5b66;
+		.opacity(0);
+		font-size: 10pt;
+
+		.transition(all .55s ease);
+	}
+
+	.input-wrapper:hover button.icon, .input-wrapper:active button.icon, .input-wrapper:focus button.icon{
+		.opacity(1);
+		margin-left: -30px;
+	}
+
+	.input-wrapper:hover button.icon:hover{
+		color: #fff;
+		background: maroon;
+	}
+
+	.material-icons {
+		font-size: 19px;
+	}
+}

@@ -1,0 +1,26 @@
+@import (reference) "../../variables.less";
+
+.component-masthead {
+	background: @brandColor;
+	height: 300px;
+	padding: @gutter * 2;
+	display: table;
+	width: 100%;
+
+	.organization {
+		font-style  : normal;
+		font-weight : 100;
+		border-right: 3px solid white;
+		padding-right: @gutter * 2;
+		margin-right: @gutter * 2;
+	}
+
+	h1 {
+		color: #FFF;
+		text-align: center;
+		display: table-cell;
+		vertical-align: middle;
+		font-size: 46px;
+		text-transform: uppercase;
+	}
+}

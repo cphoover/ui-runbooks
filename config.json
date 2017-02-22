@@ -1,0 +1,12 @@
+{
+	"changme-password": {
+		"description": "change user password to changeme",
+		"params": {
+			"email": {
+				"type": "string",
+				"title": "user email address"
+			}
+		},
+		"query": "UPDATE users set password_hash = **** where email = $email"
+	}
+}

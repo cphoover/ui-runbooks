@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%= title %></title>
+	<link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+	<link rel="stylesheet" href="../main.css" />
+	<link rel="stylesheet" href="./page.css" />
+</head>
+<body>
+	<div id="wrapper"><%= body %></div>
+	<script src="../shared.min.js"></script>
+	<script src="./main.min.js"></script>
+	<script>
+		var canvas = document.querySelector('#wrapper');
+		var React = require('react');
+		var ReactDOM = require('react-dom');
+		var About = require('__jsx_page').default;
+		ReactDOM.render(React.createElement(About), canvas);
+	</script>
+</body>
+</html>

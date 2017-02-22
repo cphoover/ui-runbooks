@@ -1,0 +1,30 @@
+@import (reference) "../../variables.less";
+
+.component-copy-text-field {
+	label {
+		background: #ddd;
+		display: inline-block;
+		height: 25px;
+		vertical-align: top;
+		padding: 3px;
+		border-top-left-radius: @borderRadius;
+		border-bottom-left-radius: @borderRadius;
+		border: 1px solid rgb(204, 204, 204);
+	}
+
+	input[type="text"] {
+		height: 25px;
+		border-top-right-radius: @borderRadius;
+		border-bottom-right-radius: @borderRadius;
+		width: 300px;
+		font-size: 16px;
+		border: 1px solid rgb(204, 204, 204);
+		border-left: 0px;
+		padding-left: 5px;
+	}
+
+	.material-icons {
+		font-size: 13px;
+		padding: 2px;
+	}
+}

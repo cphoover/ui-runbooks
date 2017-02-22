@@ -1,0 +1,75 @@
+{
+  "name": "ui-jackie-tasks",
+  "version": "0.1.0",
+  "description": "Boilerplate for ui components",
+  "devDependencies": {
+    "babel-core": "^6.3.21",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.3.13",
+    "babelify": "^7.2.0",
+    "eslint-plugin-react": "^3.12.0",
+    "estraverse": "^4.2.0",
+    "factor-bundle": "^2.5.0",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.1",
+    "gulp-babel-istanbul": "^0.11.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^0.11.1",
+    "gulp-lintspaces": "^0.3.4",
+    "gulp-mocha": "^2.2.0",
+    "gulp-postcss": "^6.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-task-listing": "^1.0.1",
+    "gulp-uglify": "^1.5.3",
+    "less": "^2.6.1",
+    "lesshat": "^3.0.2",
+    "react-dom": "^0.14.7",
+    "run-sequence": "^1.2.2",
+    "vinyl-source-stream": "^1.1.0",
+    "webpack": "^1.12.14"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:cphoover/ui-component-boilerplate.git"
+  },
+  "keywords": [
+    "boilerplate",
+    "ui",
+    "component",
+    "react"
+  ],
+  "license": "UNLICENSED",
+  "eslintConfig": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "configFile": "node_modules/ua-lintrc/reactlintrc.json",
+    "plugins": [
+      "react"
+    ]
+  },
+  "dependencies": {
+    "babel-preset-react": "^6.5.0",
+    "bluebird": "^3.3.4",
+    "browserify": "^13.0.0",
+    "css-modulesify": "^0.22.0",
+    "gulp-if": "^2.0.0",
+    "gulp-less": "^3.0.5",
+    "linting": "git+https://git@github.com/cphoover/linting.git",
+    "lodash": "^4.6.1",
+    "moment": "^2.12.0",
+    "postcss": "^5.0.19",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^4.4.1",
+    "reactify": "^1.1.1",
+    "redux": "^3.3.1",
+    "webpack-stream": "^3.1.0",
+    "whatwg-fetch": "^0.11.0"
+  }
+}
