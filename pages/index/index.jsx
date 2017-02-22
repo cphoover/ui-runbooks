@@ -2,12 +2,11 @@ import React from 'react';
 import querystring from 'querystring';
 import Navigation from '../../components/navigation/navigation.jsx';
 import Masthead from '../../components/masthead/masthead.jsx';
-import Repo from '../../components/repo/repo.jsx';
-import Pagination from '../../components/pagination/pagination.jsx';
+import Runbook from '../../components/runbook/runbook.jsx';
 import SearchBar from '../../components/search_bar/search_bar.jsx';
-import moment from 'moment';
 import _ from 'lodash';
 import updateHash from '../../util/update_hash';
+import mockResponse from '../../mock-response.json'
 
 require('whatwg-fetch');
 
@@ -17,8 +16,7 @@ export default class Index extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			repos : [],
-			page : 0
+			runbooks : []
 		};
 	}
 	handleChange(event) {
@@ -35,86 +33,35 @@ export default class Index extends React.Component {
 	render() {
 		return <div id="page-home">
 				<Navigation/>
-				<Masthead organization="Netflix" title="OSS Project Explorer"/>
+				<Masthead organization="Under Armour" title="B2B Runbook"/>
 				<SearchBar />
-				{
-					this.state.repos.length ?
-					this.state.repos.map(repo => {
-						return <Repo
-							name={repo.name}
-							description={repo.description}
-							lastPushed={this.formatDate(repo.pushed_at)}
-							stars={repo.stargazers_count}
-							forks={repo.forks_count}
-							openIssues={repo.open_issues_count}
-							url={repo.git_url}
+				{ 
+					this.state.runbooks.length ?
+					this.state.runbooks.map(runbook => {
+						return <Runbook
+							name={runbook.name}
+							description={runbook.description}
+							schema={runbook.schema}
+							key={runbook.id}
 						/>
-					}) : <h2 className='no-results'>No Results Found</h2>
-				}
-				<Pagination
-					current={this.state.page}
-					total={Math.ceil(this.state.total / PER_PAGE)}
-					handleClick={this.handlePaginationClick.bind(this)}
-				/>
+					}) : <h2 className='no-results'>No Runbooks Found</h2>
+				 }
 		</div>;
 	}
 
-
-
-	getRepos() {
-		const query = querystring.parse(global.location.hash.slice(1));
-		const apiParams = {};
-
-		if (query.page) {
-			apiParams.page = query.page;
-		}
-
-		if (query.search) {
-			apiParams.text = query.search;
-		}
-
-		if (query.sort) {
-			apiParams.sort = query.sort;
-		}
-
-		// first parse out queryString params...
-		// @todo grab endpoint from config
-		return global.fetch(`https://smiwuru1k0.execute-api.us-east-1.amazonaws.com/dev/repos?${querystring.stringify(apiParams)}`)
-			.then(x => x.json())
-			.then(resp => {
-				const stateUpdates = {
-					total : parseInt(resp.total, 10),
-					repos: resp.results
-				};
-				if(query.page) {
-					stateUpdates.page = parseInt(query.page, 10);
-				}
-				this.setState(_.extend({}, this.state, stateUpdates));
-				global.scroll(0,0);
-			});
+	getRunbooks() {
+		const keys = Object
+			.keys(mockResponse);
+		const runbooks = Object
+			.values(mockResponse)
+			.map((runbook, index) => Object.assign(runbook, {id : keys[index]}));
+		const stateUpdates = {
+			runbooks
+		};
+		this.setState(Object.assign({}, this.state, stateUpdates));
 	}
 
-	handlePaginationClick(selected) {
-		if (selected === 'prev') {
-			updateHash({page : this.state.page - 1});
-			return ;
-		}
-
-		if (selected === 'next') {
-			updateHash({page : this.state.page + 1});
-			return ;
-		}
-		updateHash({page : selected});
-	};
-
 	componentDidMount() {
-
-
-		global.addEventListener('hashchange', () => {
-			this.getRepos();
-		});
-
-		this.getRepos();
-
+		this.getRunbooks();
 	}
 }
