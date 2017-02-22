@@ -1,0 +1,98 @@
+@import (reference) "../../variables.less";
+@import (reference) "../../node_modules/lesshat/build/lesshat.less";
+
+.component-runbook {
+
+	max-width: 600px; // we are gonna put the output on the right
+	border: 1px solid gray;
+	border-left: 5px solid @brandColor;
+	border-radius: @borderRadius;
+	margin: @gutter;
+	padding: @gutter;
+
+	.stat {
+		background: maroon;
+		color: #FFF;
+		padding: 5px;
+	}
+
+	fieldset {
+		border: 0;
+		padding: 0;
+		margin: 0;
+	}
+
+	input {
+		width: 274px;
+		height: 25px;
+		border-radius: 5px;
+		background-color: white;
+		border: 1px solid #ccc;
+		padding-left: @gutter;
+	}
+
+	label.control-label {
+		font-weight: bold;
+	}
+
+	.btn {
+		color: white;
+		background: maroon;
+		display: inline-block;
+		padding: 6px 12px;
+		margin-bottom: 0;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 1.42857143;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		cursor: pointer;
+		.user-select(none);
+		background-image: none;
+		border: 1px solid transparent;
+		.border-radius(4px);
+	}
+
+	.form-group {
+		margin-top: @gutter;
+	}
+
+	.errors {
+		border: 1px solid @errorRed;
+		padding: @gutter;
+		border-radius: 5px;
+		background: @errorRedBackground;
+		max-width: 400px;
+	}
+
+
+	.errors ul {
+		padding-left: @gutter;
+	}
+
+	.text-danger {
+		color: @errorRed;
+	}
+
+	.errors .text-danger {
+		color: black;
+	}
+
+	// @todo ... fix this glyphicons or remove bootstrap
+	.glyphicon-remove:before {
+		content: "-";
+	}
+
+	.glyphicon-plus:before {
+		content: "+";
+	}
+
+	.glyphicon-arrow-down:before {
+		content: "⇩";
+	}
+
+	.glyphicon-arrow-up:before {
+		content: "⇧";
+	}
+}
