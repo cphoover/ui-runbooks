@@ -10,6 +10,16 @@
 	margin: @gutter;
 	padding: @gutter;
 
+	.toggle {
+		cursor: pointer;
+	}
+
+	&.closed {
+		form {
+			display: none;
+		}
+	}
+
 	.stat {
 		background: maroon;
 		color: #FFF;
@@ -29,6 +39,10 @@
 		background-color: white;
 		border: 1px solid #ccc;
 		padding-left: @gutter;
+	}
+
+	.field-array input {
+		width: 100%;
 	}
 
 	label.control-label {
@@ -55,7 +69,6 @@
 	}
 
 	.form-group {
-		margin-top: @gutter;
 	}
 
 	.errors {
@@ -81,18 +94,20 @@
 
 	// @todo ... fix this glyphicons or remove bootstrap
 	.glyphicon-remove:before {
-		content: "-";
+		content: "▃";
+		position: relative;
+		top: -5px;
 	}
 
 	.glyphicon-plus:before {
-		content: "+";
+		content: "✚";
 	}
 
 	.glyphicon-arrow-down:before {
-		content: "⇩";
+		content: "▼"; // @todo get rid of unicode
 	}
 
 	.glyphicon-arrow-up:before {
-		content: "⇧";
+		content: "▲";
 	}
 }

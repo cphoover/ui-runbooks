@@ -50,15 +50,21 @@ export default class Index extends React.Component {
 	}
 
 	getRunbooks() {
-		const keys = Object
-			.keys(mockResponse);
-		const runbooks = Object
-			.values(mockResponse)
-			.map((runbook, index) => Object.assign(runbook, {id : keys[index]}));
-		const stateUpdates = {
-			runbooks
-		};
-		this.setState(Object.assign({}, this.state, stateUpdates));
+		global.fetch('http://localhost:1337') //todo fetch from config
+			.then(x => x.json())
+			.then(parsed => {
+				const keys = Object
+					.keys(parsed);
+				const runbooks = Object
+					.values(parsed)
+					.map((runbook, index) => Object.assign(runbook, {id : keys[index]}));
+
+				const stateUpdates = {
+					runbooks
+				};
+
+				this.setState(Object.assign({}, this.state, stateUpdates));
+			});
 	}
 
 	componentDidMount() {

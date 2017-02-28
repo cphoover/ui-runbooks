@@ -13,7 +13,7 @@ export default class Navigation extends React.Component {
 	}
 	render() {
 		return <div className="component-navigation">
-			<a href="/">Explore Projects</a>
+			<a href="/docs">Documentation</a>
 			<a href="/about">About</a>
 			<a href="//github.com/cphoover/project-explorer">Fork this project!</a>
 		</div>;

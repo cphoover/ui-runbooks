@@ -14,12 +14,9 @@ export default class Sorter extends React.Component {
 	// @todo this should come from shared location
 	render() {
 		return <select className="component-sorter" onChange={this.change.bind(this)}>
-				<option value="latest-commit-desc">Latest Commit (Most Recent)</option>
-				<option value="latest-commit-asc">Latest Commit (Most Recent)</option>
-				<option value="stars-desc">Most Stars</option>
-				<option value="stars-asc">Least Stars</option>
-				<option value="forks-desc">Most Forks</option>
-				<option value="forks-asc">Least Forks</option>
+				<option value="most-run">Most Run</option>
+				<option value="last-run">Last Run</option>
+				<option value="least-run">Least Run</option>
 			</select>;
 	}
 
